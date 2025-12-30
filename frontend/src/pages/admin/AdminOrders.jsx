@@ -5,7 +5,7 @@ export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/orders")
+    fetch("https://ecommerce-site-1-b746.onrender.com/api/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -13,9 +13,12 @@ export default function AdminOrders() {
   async function deleteOrder(id) {
     if (!confirm("Are you sure you want to delete this order?")) return;
 
-    await fetch(`http://localhost:5000/api/orders/${id}`, {
-      method: "DELETE",
-    });
+    await fetch(
+      `https://ecommerce-site-1-b746.onrender.com/api/orders/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     setOrders(orders.filter((order) => order._id !== id));
   }
