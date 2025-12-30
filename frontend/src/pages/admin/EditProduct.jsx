@@ -6,7 +6,7 @@ export default function EditProduct() {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/products/${id}`)
+    fetch(`https://ecommerce-site-1-b746.onrender.com/api/products/${id}`)
       .then(res => res.json())
       .then(data => setForm(data));
   }, [id]);
@@ -18,7 +18,7 @@ export default function EditProduct() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/api/products/${id}`, {
+    fetch(`https://ecommerce-site-1-b746.onrender.com/api/products/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
