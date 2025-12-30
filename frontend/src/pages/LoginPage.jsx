@@ -12,11 +12,14 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://ecommerce-site-1-b746.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
 
@@ -30,6 +33,7 @@ export default function LoginPage() {
 
       alert("Login Successful!");
       navigate("/");
+
     } catch (err) {
       setError("Something went wrong!");
     }
@@ -37,9 +41,7 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg border mt-10">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-        Login
-      </h2>
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
 
       {error && (
         <div className="bg-red-100 text-red-700 p-3 rounded-lg mb-4 text-center">
@@ -48,7 +50,6 @@ export default function LoginPage() {
       )}
 
       <form onSubmit={handleLogin} className="space-y-5">
-
         <div>
           <label className="text-gray-700">Email</label>
           <input
@@ -71,9 +72,7 @@ export default function LoginPage() {
           />
         </div>
 
-        <button
-          className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition text-lg"
-        >
+        <button className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition text-lg">
           Login
         </button>
       </form>
