@@ -5,7 +5,7 @@ export default function AdminProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://ecommerce-site-1-b746.onrender.com/api/products")
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
@@ -13,7 +13,7 @@ export default function AdminProducts() {
   function handleDelete(id) {
     if (!confirm("Delete this product?")) return;
 
-    fetch(`http://localhost:5000/api/products/${id}`, {
+    fetch(`https://ecommerce-site-1-b746.onrender.com/api/products/${id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
@@ -36,7 +36,7 @@ export default function AdminProducts() {
         {products.map(p => (
           <div key={p._id}
             className="p-4 border rounded-lg flex justify-between items-center">
-            
+
             <div>
               <h2 className="text-xl font-semibold">{p.title}</h2>
               <p>${p.price}</p>
