@@ -10,7 +10,7 @@ export default function CategoryPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/products?category=${category}`)
+    fetch(`https://ecommerce-site-1-b746.onrender.com/api/products?category=${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -37,48 +37,32 @@ export default function CategoryPage() {
         {products.map((p) => (
           <div
             key={p._id}
-            className="
-              bg-white rounded-2xl shadow-lg border border-gray-200 
-              p-5 hover:-translate-y-2 hover:shadow-2xl transition duration-300
-            "
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-5 hover:-translate-y-2 hover:shadow-2xl transition duration-300"
           >
             <div className="w-full h-60 overflow-hidden rounded-xl mb-4">
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-              />
+              <img src={p.image} alt={p.title} className="w-full h-full object-cover hover:scale-110 transition-transform" />
             </div>
 
-            <h2 className="text-xl font-semibold text-gray-800">
-              {p.title}
-            </h2>
+            <h2 className="text-xl font-semibold text-gray-800">{p.title}</h2>
 
-            <p className="text-gray-700 font-medium mt-2 mb-4">
-              ${p.price}
-            </p>
+            <p className="text-gray-700 font-medium mt-2 mb-4">${p.price}</p>
 
             <div className="flex gap-4 mt-4">
               <button
                 onClick={() => buyNow(p)}
-                className="
-                  w-1/2 bg-blue-600 text-white py-2 rounded-lg
-                  hover:bg-blue-700 transition shadow
-                "
+                className="w-1/2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition shadow"
               >
                 Buy Now
               </button>
 
               <button
                 onClick={() => addToCart(p)}
-                className="
-                  w-1/2 bg-green-600 text-white py-2 rounded-lg
-                  hover:bg-green-700 transition shadow
-                "
+                className="w-1/2 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition shadow"
               >
                 Add
               </button>
             </div>
+
           </div>
         ))}
       </div>
