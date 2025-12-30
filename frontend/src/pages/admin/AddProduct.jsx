@@ -16,7 +16,7 @@ export default function AddProduct() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5000/api/products", {
+    fetch("https://ecommerce-site-1-b746.onrender.com/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
