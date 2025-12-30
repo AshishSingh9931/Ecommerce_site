@@ -14,11 +14,14 @@ export default function RegisterPage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, password }),
-      });
+      const res = await fetch(
+        "https://ecommerce-site-1-b746.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fullName, email, password }),
+        }
+      );
 
       const data = await res.json();
 
@@ -82,9 +85,7 @@ export default function RegisterPage() {
           />
         </div>
 
-        <button
-          className="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition text-lg"
-        >
+        <button className="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition text-lg">
           Create Account
         </button>
       </form>
